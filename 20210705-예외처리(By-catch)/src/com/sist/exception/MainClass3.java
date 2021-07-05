@@ -6,8 +6,8 @@ public class MainClass3 {
 	 * NumberFormatException,ArithmeticException, NumberFormatException 선언 => 처리 시기
 	 * : display를 호출 할 때 처리 try { display() }catch(Exception e){}
 	 * 
-	 * 나중에 처리한다 => 사용자가 처리 void main() throws
-	 * NumberFormatException,ArithmeticException, NumberFormatException { }
+	 * 나중에 처리한다 => 사용자가 처리
+	 * void main() throws NumberFormatException,ArithmeticException,NullPointerException { }
 	 */
 	
 	// 예외를 선언 (throws) ==> 다음에 메소드 호출시에 처리
@@ -22,29 +22,54 @@ public class MainClass3 {
 	 *        라이브러리 사용시에 try~catch, throws (단점 => 복구가 안된다, 정상 종료는 가능 하다)
 	 *                       ========== catch에서 에러 복구 (가급적이면 try~catch 사용을 권장)
 	 */
-	public void display() throws NumberFormatException, ArithmeticException, NumberFormatException, Exception {
-		System.out.println("Hello");
-	}
-
+	public void display() throws NumberFormatException,ArithmeticException,NullPointerException
+    ,Exception
+    {
+    	System.out.println("Hello");
+    }
 	public static void main(String[] args) throws Exception{
-		MainClass3 m=new MainClass3();
-		// NumberFormatException,ArithmeticException, NumberFormatException
-		// RuntimeException => 생략이 가능하다
-		/*
-		try {
+		// TODO Auto-generated method stub
+        MainClass3 m=new MainClass3();
+        m.display();
+        // NumberFormatException,ArithmeticException,NullPointerException 
+        // RuntimeException => 생략이 가능 하다 
+       /* try
+        {
+           m.display();
+        }catch(NumberFormatException e) {}
+        catch(ArithmeticException e) {}
+        catch(NullPointerException e) {}
+        catch(Exception e) {} // 멀티 catch
+       
+        try
+        {
+           m.display();
+        }catch(Exception ex) {}
+        
+        try {
 			m.display();
-		}catch(NumberFormatException e) {}
-		catch(ArithmeticException e) {}
-		catch(NullPointerException e) {}
-		catch(Exception e) {} // 멀티 catch
-		*/
-		
-		try {
-			m.display();
-		}catch(Exception e) {
-//			???????????
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-//		???????????????????????
-}
+        
+        
+			try {
+				m.display();
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ArithmeticException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+		
+	}
 
 }

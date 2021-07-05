@@ -2,10 +2,40 @@ package com.sist.exception;
 // 입출력 ==> 반드시 예외처리를 해야 된다
 import java.io.FileReader;
 // 반드시 예외처리 : java.io, java.net, java.sql, javax....(jdk1.2) => xml, web... 
+/*
+ *      public static void main(String[] args) {
+ *         try
+ *         {
+ *            int a=10/0; => ArithmeticException => RuntimeException => Exception => Throwable
+ *            System.out.println("Hello"); (X) (건너뛴다)
+ *         }catch(NumberFormaException e){}
+ *         catch(ArrayIndexOutOfBoundsException e){}
+ *         catch(NullPointerException ex){}
+ *         ===> 오류
+ *         ArithmeticException => RuntimeException => Exception => Throwable 와 관련된 예외처리
+ *         없으므로 오류
+ *         =========================================================
+ *         >> catch(Exception ex) {}  => 수행       default
+ *         >> 마지막에 큰거 하나 넣어줘야함
+ *         =========================================================
+ *      }
+ *      
+ *      throws : 라이브러리 (자바에서 지원하는 메소드에서 구현이 가능)
+ *      
+ */
 public class MainClass5 {
 
+//	public static void main(String[] args) throws InterruptedException { ==> 선언
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		// 호출
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		/*
 		FileReader fr=null;
 		try{
