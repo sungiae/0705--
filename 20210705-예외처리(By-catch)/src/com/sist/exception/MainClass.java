@@ -18,8 +18,22 @@ package com.sist.exception;
  *                  60% 사용자 정의
  *                  => 데이터형, 클래스, 메소드, 예외처리 직접제작
  *                     ===================================
- *    
+ *    {} 맨 마지막에 설정
+ *       => break;
+ *       => continue;
+ *       => throw
+ *       => return
+ *    {} 맨 처음에 설정
+ *       => this() => 자신의 생성자 호출
+ *       => super() => 상위 클래스의 생성자 호출
  */
+
+// 사용자 정의 예외처리 (반드시 Exception을 상속 받아서 처리) => 오늘 이후로는 사용하지 않는다
+class MyException extends Exception{
+	public MyException(String msg) {
+		super(msg);
+	}
+}
 public class MainClass {
 
 	public static void main(String[] args) {
@@ -27,7 +41,10 @@ public class MainClass {
 			int a=10;
 			if(a%2==0) {
 				// 에러를 발생한다
-				throw new Exception(a+"는 짝수입니다"); // throw는 catch절을 호출하는 명령어다
+				throw new Exception(a+"는 짝수입니다"); // throw는 catch절을 호출하는 명령어다 => catch수행
+				// System.out.println("aaa");
+				// 프로그램이 잘 만들어졌는지 확인
+				// throw문장은 {} 맨 마지막에 설정
 			}
 		}catch(Exception ex) {
 			System.out.println("Exception => catch절 수행");
